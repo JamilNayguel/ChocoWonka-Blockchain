@@ -1,0 +1,20 @@
+.transaction-container {
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+  
+h2 {
+    color: #4a5568;
+}
+
+.cor{
+  background: #3affd43d;
+}
+.tam{
+  background-color: #6d56a0;
+  color: #fff;
+  font-size: 1.3rem;
+}

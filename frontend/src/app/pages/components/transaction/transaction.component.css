@@ -1,0 +1,67 @@
+.transaction-container {
+    
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h2 {
+    color: #4a5568;
+  }
+  
+  button {
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+button:hover {
+  background: #2b6cb0;
+}
+
+
+::ng-deep .p-password {
+  width: 100%;
+  color: #495057;
+  background: #ffffff;
+  border: 1px solid #ced4da;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  border-radius: 3px;
+}
+
+.cor{
+  background: #3affd43d;
+}
+.tam{
+  background-color: #6d56a0;
+  color: #fff;
+  font-size: 1.3rem;
+}
+.fullSec {
+  min-height: 90vh; 
+  background-color: #fff; 
+}
+.total{
+  font-size: 1rem;
+}
+
+
+::ng-deep td p-button button{
+  border-radius: 50% !important;
+}
+
+::ng-deep .p-datatable .p-datatable-theader {
+  background: #9071d3c9 !important;
+}
+::ng-deep .p-datatable .p-datatable-tbody > tr:hover{
+  background: #9071d369 !important;
+}
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: #9071d369;
+  border-color: #EFF6FF;
+  color: #3a3a3a;
+}
+  
+  

@@ -1,0 +1,137 @@
+.section {
+  padding: 80px 0;
+}
+
+.section.bg-custom-gray {
+  background: rgba(242, 244, 247, 0.15);
+}
+
+.about-section {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.about-section .about-card {
+  padding: 60px;
+  border-right: 1px solid #dee2e6;
+}
+
+.about-section .about-card:last-child {
+  border-right: none;
+}
+
+.contact {
+  position: relative;
+  min-height: 700px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px 0;
+}
+
+@media (max-width: 991.98px) {
+  .contact {
+    padding: 300px 0 0;
+  }
+  .contact .contact-form-card {
+    border-bottom: 1px solid #dee2e6;
+  }
+  .contact .contact-form-card,
+  .contact .contact-info-card {
+    min-height: auto !important;
+  }
+}
+
+.contact .map {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://cdn.pixabay.com/photo/2017/02/11/14/19/valentines-day-2057745_960_720.jpg");
+  background-size:contain;
+  background-color: #e24040e0;
+  z-index: -1;
+}
+
+.contact .contact-form-card,
+.contact .contact-info-card {
+  padding: 35px;
+  background: #ffffffe1;
+  min-height: 500px;
+}
+
+.contact .contact-info-card {
+  padding-right: 20px;
+}
+
+.contact .contact-title {
+  margin-bottom: 30px;
+}
+
+.contact .contact-title::after {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: #F85C70;
+  display: block;
+  margin-top: 10px;
+}
+ul{
+  list-style: none;
+}
+li{
+  padding: 5px;
+}
+i{
+  font-size: 1.6rem;
+  color: #F85C70;
+}
+.cor{
+  background: #f85c7125;
+}
+
+
+
+
+
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.text-primary {
+  color: #212c2a;
+}
+
+.p-button-success {
+  background-color: #F85C70;
+  border-color: #F85C70;
+}
+
+.p-button-success:hover {
+  background-color: #6d56a0;
+  border-color: #6d56a0;
+}
+
+

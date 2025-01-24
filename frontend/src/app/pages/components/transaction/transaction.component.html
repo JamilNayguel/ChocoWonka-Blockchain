@@ -1,0 +1,158 @@
+<div class="transaction-container col-9 align-content-center" *ngIf="transactionData; else noData">
+  <h2 class="text-center font-bold cor pt-3 pb-3">Resumen de la Compra</h2>
+
+  <!-- Tabla utilizando PrimeNG -->
+  
+  <p-table
+        #dt1
+        [value]="transactionData.items" 
+        [tableStyle]="{ 'min-width': '50rem' }"
+        selectionMode="single"
+        dataKey="id"
+        stateStorage="session" 
+        [rows]="5"
+        [rowsPerPageOptions]="[5, 10, 15]"
+        [paginator]="true"
+    >
+        
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="min-width:10rem">
+                  <div class="flex align-items-center">
+                    Producto
+                  </div>
+                </th>
+
+                <th style="min-width:10rem">
+                  <div class="flex align-items-center">
+                    Cantidad
+                  </div>
+                </th>
+
+                <th style="min-width:10rem">
+                  <div class="flex align-items-center">
+                    Precio Unitario (Bs)
+                  </div>
+                </th>
+
+                <th style="min-width:10rem">
+                  <div class="flex align-items-center">
+                    Subtotal (Bs)
+                  </div>
+                </th>
+
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-item>
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.quantity * item.price }}</td>
+          </tr>
+        </ng-template>
+
+    </p-table>
+
+ 
+
+  <!-- Total general -->
+  <div class="mt-4 text-right font-bold text-center total pb-4 pt-3 ">
+    <h4>Monto Total: Bs {{ transactionData.total_price }}</h4>
+  </div>
+
+  <div class="col-12 text-center cor pb-3 pt-4 d-flex flex-wrap justify-content-center gap-3">
+    <div class="justify-content-center align-content-center">
+      <h3>Pagar con ChocoPay</h3> 
+    </div>
+    <div>
+      <img src="../../../../assets/img/ChocoPay.png" alt="imag chocopay" width="60rem">
+    </div>
+    
+    
+  </div>
+
+  <!-- Formulario -->
+  <form [formGroup]="lg" class="col-12 container-fluid d-flex flex-wrap justify-content-center gap-2">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-5 d-flex justify-content-center pb-4">
+      <div class="col-11 col-sm-10 col-md-9 d-flex flex-column gap-2">
+        <label for="Usuario">Usuario <small class="p-error block">✽</small></label>
+        <input id="Usuario" type="text" pInputText formControlName="Usuario" placeholder="Usuario" />
+        <small class="p-error block" *ngIf="inputValid('Usuario')">{{messageError('Usuario')}}</small>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-10 col-md-8 col-lg-5 d-flex justify-content-center pb-4">
+      <div class="col-11 col-sm-10 col-md-9 d-flex flex-column gap-2">
+        <label for="Contrasena">Contraseña <small class="p-error block">✽</small></label>
+        <p-password for="Contrasena" [toggleMask]="true" [feedback]="false" id="Contrasena" formControlName="Contrasena" placeholder="Contraseña" class="contra" >Contraseña <small class="p-error block">✽</small></p-password>
+        <small class="p-error block" *ngIf="inputValid('Contrasena')">{{messageError('Contrasena')}}</small>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-10 col-md-8 col-lg-5 d-flex justify-content-center pb-4">
+      <div class="col-11 col-sm-10 col-md-9 d-flex flex-column gap-2">
+        <label for="Pais">Pais <small class="p-error block">✽</small></label>
+        <input id="Pais" type="text" pInputText formControlName="Pais" placeholder="Pais" />
+        <small class="p-error block" *ngIf="inputValid('Pais')">{{messageError('Pais')}}</small>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-10 col-md-8 col-lg-5 d-flex justify-content-center pb-4">
+      <div class="col-11 col-sm-10 col-md-9 d-flex flex-column gap-2">
+        <label for="Ciudad">Ciudad<small class="p-error block">✽</small></label>
+        <input id="Ciudad" type="text" pInputText formControlName="Ciudad" placeholder="Ciudad" />
+        <small class="p-error block" *ngIf="inputValid('Pais')">{{messageError('Pais')}}</small>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-10 col-md-8 col-lg-5 d-flex justify-content-center pb-4">
+      <div class="col-11 col-sm-10 col-md-9 d-flex flex-column gap-2">
+        <label for="Direccion">Direccion<small class="p-error block">✽</small></label>
+        <input id="Direccion" type="text" pInputText formControlName="Direccion" placeholder="Direccion" />
+        <small class="p-error block" *ngIf="inputValid('Pais')">{{messageError('Pais')}}</small>
+      </div>
+    </div>
+  </form>
+
+  <!-- Botón de confirmación -->
+
+  <div class="p-3 col-12 d-flex justify-content-center">
+    <div class="col-8 col-sm-6 col-lg-4 d-flex flex-column gap-2 modiSubmit">
+      <p-button label="Confirmar Transacción" (click)="sendTransaction()" 
+        class="px-4 py-2 mt-4 rounded" 
+        [disabled]="lg.invalid" 
+        [style]="{width: '100%', borderRadius: '6px', backgroundColor: '#f9b154', borderColor: '#f9b154'}" >
+      </p-button>
+    </div>
+  </div>
+
+  <div class="container-fluid d-flex flex-wrap justify-content-end align-items-center p-4">
+    <a class="tam p-2 col-4 col-md-4 col-lg-3 col-xl-2 text-decoration-none animation rounded-3 text-center" href="/inicio" role="button">
+        Volver a la tienda
+    </a>
+  </div>
+  
+</div>
+
+<ng-template #noData>
+
+  <div class="text-center align-content-center h-full fullSec ">
+
+    <div class="cor">
+      <h3 class="text-center align-content-center pt-5 pb-5">Ingrese sus productos favoritos para comprar.</h3>
+
+      <div class="container-fluid d-flex flex-wrap justify-content-center align-items-start pt-4 pb-5">
+        <a class="tam p-2 col-4 col-md-4 col-lg-3 col-xl-2 text-decoration-none animation rounded-3 text-center" href="/inicio" role="button">
+            Volver a la tienda
+        </a>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  
+
+</ng-template>
