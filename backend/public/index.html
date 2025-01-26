@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Inicio - GAMC Backend</title>
+    <!-- Incluye Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Archivo: styles.css */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
+            border-top: 10px solid #ea547c; /* Línea superior con color Magenta */
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #6d56a0; /* Morado */
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .intro p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #4fb9a8; /* Verde Agua */
+            animation: slideIn 2s ease-out;
+        }
+
+        .actions {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4ac1e0; /* Celeste */
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #4fb9a8; /* Verde Agua */
+        }
+
+        .icons {
+            margin-top: 20px;
+            color: #f9b154; /* Naranja */
+        }
+
+        .icons i {
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .icons i:hover {
+            color: #ea547c; /* Magenta */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-city"></i> Bienvenido al Sistema de la Secretaria de Desarrollo Humano y Deportes 2024 GAMC</h1>
+        </header>
+        <section class="intro">
+            <p>Este es el sistema de backend de la Secretaria de Desarrollo Humano y Deportes 2024 GAMC.</p>
+        </section>
+    </div>
+</body>
+</html>

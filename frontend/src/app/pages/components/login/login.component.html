@@ -1,0 +1,58 @@
+<div class="container-fluid h-100 p-0">
+  
+  <div class="col-12 container-fluid d-flex flex-wrap justify-content-center p-0">
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-7 d-flex justify-content-center">
+      <div class="col-12 d-flex flex-column">
+        <div class="image col-12 col-lg-12 p-0 h-100 zoom-effect-container">
+          <img src="../../assets/img/imag-login.jpg" alt="Imagen" class=" zoom-effect img-fluid h-100 w-100" style="object-fit: cover;">
+          
+        </div>  
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-5 d-flex justify-content-center align-items-center flex-wrap">
+      <div class="col-12 d-flex justify-content-center flex-wrap">
+
+        <div class="image col-6 col-lg-4 p-3">
+          <img src="../../assets/img/logo-Chocowonka.png" alt="Imagen" class="img-fluid h-100 w-100" style="object-fit: cover;">
+        </div> 
+
+        <h1 class="col-9 title-login">Bienvenido a ChocoWonka</h1>
+        <h2 class="col-8 title-login">Gestión {{year}}</h2>
+        <div class="col-7 login-header">
+        <h2>Iniciar Sesión</h2>
+        </div>
+        <form  [formGroup]="lg" class="col-8 d-flex justify-content-center flex-wrap " >
+          <div class="col-12 form-group d-flex align-items-center  flex-wrap">
+              <i class="fas fa-user "></i>
+              
+              <input type="text" [class.ng-dirty]="inputValid('ci')" pInputText formControlName="ci" class="w-100" placeholder="Usuario" />
+              <small *ngIf="alert.ci" class="text-danger d-block" style="margin-left:10px ;">{{alert.ci}}</small>
+              <small *ngIf="inputValid('ci')" class="p-error block">{{messageError('ci')}}</small>
+          </div>
+
+          <div class="col-12 form-group">
+              <i class="fas fa-lock "></i>
+              <input type="password" [class.ng-dirty]="inputValid('password')" pInputText formControlName="password" class="w-100" placeholder="Contraseña" />
+              <small *ngIf="alert.password" class="text-danger d-block" style="margin-left:10px ;">{{alert.password}}</small>
+              <small *ngIf="inputValid('password')" class="p-error block">{{messageError('password')}}</small>
+
+          </div>
+    
+          <div class="col-12 d-flex justify-content-center flex-wrap">
+            
+            <button type="button" class="btn btn-primary col-6  d-flex justify-content-center align-items-start text-center login-button" (enter)="login()" (click)="login()" [disabled]="!lg.valid" *ngIf="!start">Iniciar Sesión</button>
+            <button type="button" class="btn btn-primary col-6  d-flex justify-content-center align-items-start text-center login-button" disabled  *ngIf="start">  <i class="pi pi-spin pi-th-large"></i>&nbsp;&nbsp;&nbsp;&nbsp;Cargando...</button>
+            <!-- pi pi-spin pi-th-large -->
+          </div>
+              
+        </form>
+        <div class="p1" ></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
